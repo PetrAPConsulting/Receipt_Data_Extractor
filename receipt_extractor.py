@@ -37,10 +37,8 @@ def extract_receipt_data(image_path: str, api_key: Optional[str] = None) -> Dict
     
     # System prompt
     system_prompt = """Extract the following details from the provided image of receipt document. First look for VAT identification number (vatNumber) in the document and associated name of the company (companyName).
-Ensure all fields from the schema are populated if the information is present in the document.
-If a piece of information is not found, you may omit the field or use a suitable placeholder like 'N/A' if the schema requires it, but prioritize extracting actual values. For numerical values (prices, VAT amount, VAT rate), provide them as numbers (float).
-For VAT rate, if it's written as e.g. '21%', provide the number 21.
-Also, extract the date of sale (transaction date) from the receipt always in dd.mm.yyyy format. It might be in dd/mm/yyyy or dd.mm.yyyy format on document. If multiple dates are present (e.g., issue date, due date), use the primary transaction sale date."""
+Ensure all fields from the schema are populated if the information is present in the document. If a piece of information is not found, you may omit the field or use a suitable placeholder like 'N/A' if the schema requires it, but prioritize extracting actual values. For numerical values (prices, VAT amount, VAT rate), provide them as numbers (float).
+For VAT rate, if it's written as e.g. '21%', provide the number 21. Also, extract the date of sale (transaction date) from the receipt always in dd.mm.yyyy format. It might be in dd/mm/yyyy or dd.mm.yyyy format on document. If multiple dates are present (e.g., issue date, due date), use the primary transaction sale date."""
 
     # JSON schema
     json_schema = {
